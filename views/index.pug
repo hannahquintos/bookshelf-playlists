@@ -1,0 +1,30 @@
+extends common/layout
+
+
+block main-content
+  .contentWrapper
+    #homeContent
+      #imgContainer
+        a(href="https://www.vecteezy.com/vector-art/32434433-girl-reading-on-a-swing-at-home-relaxed-and-listening-to-music-concept")
+          img(src='../images/girl-reading.jpg' alt='Girl reading on a swing at home, relaxed and listening to music.')
+      #searchContainer 
+        h1 Find the Perfect Playlist Pairing for Your Book
+        p Search for your book, then explore curated music playlists designed to complement your reading experience.
+        form(method="post", action="/search-results")
+          label#formLabel(for="search") Search Bar
+          input(type="text", id="search", name="search")
+          button#searchBtn(type="submit") Search
+    #bookSearchResults
+      //- only show search results section if a search input has been given and there are results for the search
+      if books && books.length > 0
+        h2 Search Results: 
+          span#searchInput #{search}
+        #books
+          each book in books
+            if book.volumeInfo.title && book.volumeInfo.authors && book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail
+              a(href=`/book/${book.id}`)
+                .book
+                  - const bookImgAltText = `${book.volumeInfo.title} Book Cover`
+                  img(src=book.volumeInfo.imageLinks.thumbnail, alt=bookImgAltText)
+                  h3 #{book.volumeInfo.title}
+                  p By: #{book.volumeInfo.authors.join(', ')}

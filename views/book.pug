@@ -1,0 +1,27 @@
+extends common/layout
+
+
+block main-content 
+    .contentWrapper
+        #bookContent
+            #bookImg
+                if book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail
+                    - bookImgAltText = `${book.volumeInfo.title} Book Cover`
+                    img(src=book.volumeInfo.imageLinks.thumbnail, alt=bookImgAltText)
+            #bookDetails
+                if book.volumeInfo.title
+                    h1#bookTitle #{book.volumeInfo.title}
+                if book.volumeInfo.authors
+                    p#author By: #{book.volumeInfo.authors.join(', ')}
+                if book.volumeInfo.description
+                    //- render unescaped html in the description
+                    p!= book.volumeInfo.description
+                h2 Suggested Playlists
+                #playlists
+                    each playlist in playlists
+                        iframe(
+                            src=`https://open.spotify.com/embed/playlist/${playlist.id}`
+                            width="260"
+                            height="360"
+                            frameborder="0"
+                        )

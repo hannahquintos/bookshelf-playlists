@@ -1,0 +1,32 @@
+block variables 
+doctype html 
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width")
+    title #{title} | Bookshelf Playlists
+    block scripts 
+      link(rel="stylesheet", type="text/css", href="/styles.css")
+  body
+    header
+      .contentWrapper
+        #headerContent 
+          div
+            h2#siteName 
+              a(href="/") Bookshelf Playlists
+          div
+            nav 
+              ul#navLinks
+                  li 
+                      a(href="/") Home
+                  li 
+                      a(href="#") About
+                  li 
+                      a(href="#") Contact
+      .line
+    main#main 
+      block main-content 
+    footer#footer 
+      .line
+      .contentWrapper
+        p &copy; Copyright Bookshelf Playlists, 2024.

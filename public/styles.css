@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100..1000&family=Days+One&family=Koulen&display=swap');
+
+/* GENERAL */
+
+:root{
+  --blue: #D3DBEF;
+}
+
+html{
+  font-family: "DM Sans", sans-serif;
+  box-sizing: border-box; 
+}
+
+body{
+  margin: 0;
+  font-size: 1.15em;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.contentWrapper{
+  max-width: 1366px;
+  margin: 0;
+  padding: 0 115px;
+}
+
+h1{
+  font-family: "Days One", sans-serif;
+  margin: 0;
+}
+
+h3{
+  font-weight: 600;
+}
+
+/* HEADER */
+
+#headerContent{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#siteName{
+  font-family: "Koulen", sans-serif;
+  letter-spacing: 1px;
+}
+
+#navLinks{
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  font-weight: 300;
+}
+
+#navLinks a:hover{
+  font-weight: 600;
+}
+
+li{
+  list-style: none;
+}
+
+.line{
+  height: 7px;
+  background-color: var(--blue);
+}
+
+/* HOME PAGE */
+
+#homeContent{
+  display: flex;
+  margin: 3em 0;
+  gap: 3em;
+  align-items: center;
+}
+
+#searchContainer{
+  background-color: var(--blue);
+  flex: 55%;
+  border-radius: 40px;
+  padding: 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  justify-content: center;
+}
+
+#imgContainer{
+  flex: 35%;
+}
+
+img{
+  width: 100%;
+}
+
+#imgContainer img{
+  min-width: 250px;
+}
+
+input{
+  border: none;
+  border-radius: 10px;
+  width: 75%;
+  padding: 10px;
+  font-size: 1em;
+  font-family: "DM Sans", sans-serif;
+}
+
+#searchBtn{
+  border: none;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  width: 90px;
+}
+
+form{
+  display: flex;
+  gap: 0.75em;
+  height: 2.25em;
+}
+
+#formLabel{
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* book search results */
+
+#searchInput{
+  font-weight: 400;
+}
+
+#bookSearchResults{
+  margin-bottom: 4em;
+}
+
+#books{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, auto));
+  gap: 2.5em;
+  justify-content: start;
+}
+
+.book{
+  width: 250px;
+}
+
+.book h3{
+  margin: 0.5em 0;
+}
+
+.book p{
+  margin-top: 0;
+}
+
+#bookSearchResults h2{
+  font-size: 1.4em;
+}
+
+/* SINGLE BOOK PAGE */
+
+#bookContent{
+  padding-top: 2em;
+  padding-bottom: 4em;
+  display: flex;
+  gap: 3em;
+  flex-wrap: wrap;
+}
+
+#bookImg{
+  flex: 20%;
+  max-width: 300px;
+  flex-shrink: 0;
+}
+
+#bookDetails{
+  flex: 60%;
+  flex-shrink: 1;
+  width: 100%;
+}
+
+#bookTitle{
+  font-family: "DM Sans", sans-serif;
+}
+
+#author{
+  font-weight: 600;
+  font-size: 1.15em;
+}
+
+#playlists{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, auto));
+  gap: 1em;
+  justify-content: start;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width:999px){
+
+  #homeContent{
+    flex-wrap: wrap-reverse;
+  }
+
+  #imgContainer{
+    text-align: center;
+  }
+  
+  #imgContainer img{
+    width: 50%;
+  }
+
+}
+
+/* tablet */
+
+@media screen and (max-width:768px){
+
+  /* GENERAL */
+
+  .contentWrapper{
+    max-width: 768px;
+    padding: 0 66px;
+  }
+
+  body{
+    font-size: 1em;
+  }
+
+  /* HEADER */
+
+  #headerContent{
+    flex-direction: column;
+    gap: 0.25em;
+    padding: 1em 0;
+    height: auto;
+  }
+
+  #navLinks{
+    margin: 0;
+    padding-left: 0;
+  }
+
+  /* HOME PAGE */
+
+  #searchContainer{
+    padding: 50px;
+  }
+
+  #books{
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 2.5em;
+  }
+  
+  .book{
+    width: 150px;
+  }
+
+  /* SINGLE BOOK PAGE */
+
+}
+
+/* mobile */
+@media screen and (max-width:480px){
+  
+  /* GENERAL */
+
+  .contentWrapper{
+      max-width: 480px;
+      padding: 0 37px;
+  }
+
+  body{
+    font-size: 0.75em;
+  }
+
+  /* HOME PAGE */
+
+  #searchContainer{
+    padding: 40px;
+  }
+
+  #books{
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 2.5em;
+  }
+  
+  .book{
+    width: 100px;
+  }
+
+}
