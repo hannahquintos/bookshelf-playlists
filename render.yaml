@@ -1,9 +1,0 @@
-services:
-  - name: web
-    env: node
-    startCommand: "npm start"
-
-builds:
-  - name: default
-    env: node
-    buildCommand: "npm install"
